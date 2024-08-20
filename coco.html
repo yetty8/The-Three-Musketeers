@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom,#eb3178, #87bdea, #eb3178);
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+    }
+    @keyframes glow {
+  0% {
+    text-shadow: 2px 2px 4px rgb(120, 188, 239);
+  }
+  50% {
+    text-shadow: 2px 2px 8px rgb(239, 220, 107);
+  }
+  100% {
+    text-shadow: 2px 2px 4px rgb(240, 32, 32);
+  }
+}
+
+    .story-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      
+      border-radius: 10px;
+      box-shadow: 0 20px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .story-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: rgb(53, 11, 66);
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    .story-content {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .story-image {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .story-video {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+    #back-button {
+  position: fixed;
+  font-weight: bold;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  background-color: #6de5c9;
+  color: rgb(15, 15, 12);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#back-button:hover {
+  background-color: rgb(247, 234, 132);
+  color: rgb(240, 32, 32);
+  box-shadow: 0 0 10px rgb(240, 32, 32);
+} 
+.snow-background {
+  position: relative;
+ 
+}
+
+.snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: fall 5s infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100px, 100vh);
+    opacity: 0;
+  }
+}
+
+.snow:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.snow:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.snow:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.snow:nth-child(4) {
+  animation-delay: 3s;
+}
+
+.snow:nth-child(5) {
+  animation-delay: 4s;
+}
+
+
+.footer .copyright {
+  background-color: #444;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  clear: both;
+}
+.header {
+    background-color: rgb(182, 124, 217);
+  color: rgb(239, 244, 134);
+  padding: 10px 0;
+  text-align: center;
+  position: relative;
+  animation: glow 1s ease-in-out infinite alternate;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+}
+.cloud {
+  position: absolute;
+  margin-top: 50px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+  /* ... */
+  animation: float 5s infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+
+.cloud::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cloud::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  </style>
+</head>
+<body>
+    <audio id="music-player" autoplay loop>
+        <source src="./images/30 Minute Deep Meditation Music for Positive Energy  Relax Mind Body, Inner Peace.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+      <!-- Add this to your hazel.html page -->
+      <div class="cloud"></div>
+
+    <header class="header">
+        <h1>Welcome to Coco Page</h1>
+        
+      </header>
+
+      <div class="snow-background">
+        <div class="snow"></div>
+        <div class="snow"></div>
+        <div class="snow"></div>
+        <div class="snow"></div>
+        <div class="snow"></div>
+      </div>
+
+    <button id="back-button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+        <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+      </svg>Home</button>
+  <div class="story-container">
+    <h1 class="story-title">Hi! My Name Is Coco</h1>
+    <p class="story-content">
+        I am Coco, a canine professional with a distinguished lineage. 
+        I was born and raised in the serene countryside of Waterloo and the 
+        vibrant metropolis of Toronto. I am widely recognized as an exceptionally 
+        talented and charming and endearing member of my canine family. My presence 
+        and familiarity invariably commands attention and admiration from all who encounter me.
+    </p>
+    <img src="./images/cocostick.png" alt="Beach Image" class="story-image">
+    <p class="story-content">
+        I am fortunate to have two siblings, Prince and Hazel, with whom I share a close bond. 
+        However, I occasionally find myself the target of their playful teasing due to my diminutive size 
+        and my love for my family. I am especially fond of the beach and irresistible charm.
+    </p>
+    <video src="./images/cocoplaying.MOV" autoplay muted class="story-video"></video>
+    <p class="story-content">
+        Despite these moments of sibling rivalry, I cherish the time we spend together, 
+        and I am always looking forward to seeing both within the confines of our home 
+        and in the great outdoors.
+
+    </p>
+    <img src=" ./images/allinbalcony.png" alt="Beach Image 2" class="story-image">
+    <p class="story-content">
+        As for my personal interests and hobbies, I must confess to a deep appreciation 
+        of the many pursuits I enjoy for slumber. Additionally, I derive great pleasure 
+        from engaging in playful pursuits with my sibling, Hazel, particularly when we find 
+        ourselves in the stimulating environment of a dog park.
+    </p>
+  </div>
+  <footer class="footer">
+    <div class="copyright">
+      <p>&copy; 2024 Coco. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const backButton = document.getElementById('back-button');
+    backButton.addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  </script>
+
+<script>
+    const snowBackground = document.querySelector('.snow-background');
+    
+    function createSnow() {
+      const snow = document.createElement('div');
+      snow.classList.add('snow');
+      snow.style.top = `${Math.random() * 100}%`;
+      snow.style.left = `${Math.random() * 100}%`;
+      snowBackground.appendChild(snow);
+      setTimeout(() => {
+        snow.remove();
+      }, 5000);
+    }
+    
+    setInterval(createSnow, 1000);
+     </script>
+    const button = document.getElementById('button');
+    
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      button.style.top = `${scrollPosition + 20}px`;
+    });
+  </script>
+</body>
+</html>

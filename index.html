@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spinning Cube</title>
+    
+    <style>
+       /* <!-- ...css for the cube...--> */
+        body {
+          background: linear-gradient(300deg, #dbe878 0%, #51f0d3 49%, #eaa148 100%);
+          background-size: 400% 400%;
+          animation: gradient-animation 15s ease infinite;
+            font-family: Arial, sans-serif;
+            
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        @keyframes gradient-animation {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+          
+        }
+
+        .cube-1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+        }
+
+        .cube {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+            transform: translate(-50%, -50%);
+            transform-origin: center;
+            animation: spin 5s infinite linear;
+
+            /* <!-- ...css for the cube faces...--> */
+        }
+
+        .cube-face {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: #000;
+            border: 1px solid #FFD700;
+        }
+       
+
+        .cube-face.front {
+            transform: translateZ(200px);
+        }
+
+        .cube-face.back {
+            transform: rotateY(180deg) translateZ(200px);
+        }
+
+        .cube-face.left {
+            transform: rotateY(-90deg) translateZ(200px);
+        }
+
+        .cube-face.right {
+            transform: rotateY(90deg) translateZ(200px);
+        }
+
+        .cube-face.top {
+            transform: rotateX(90deg) translateZ(200px);
+        }
+
+        .cube-face.bottom {
+            transform: rotateX(-90deg) translateZ(200px);
+        }
+        /* <!-- ...css for the cube...--> */
+       
+/* <!-- ...css for the welcome title...--> */
+        .welcome-title {
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        margin-top: -50px;
+        overflow: hidden;
+        text-align: center;
+        animation: glow 1s ease-in-out infinite alternate;
+        color: rgb(206, 69, 69);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        
+        font-weight: bold;
+        font-style: italic;
+        text-shadow: #51174b;
+    }
+
+    .welcome-title span {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        font-weight: bold;
+        font-style: italic;
+        text-shadow: #51174b;
+        color: rgb(215, 106, 110);
+        animation: move-fade 25s infinite;
+        margin-top: 20px;
+    }
+
+    @keyframes move-fade {
+        0% {
+            left: 100%;
+            opacity: 1;
+        }
+        50% {
+            left: 0;
+            opacity: 1;
+        }
+        75% {
+            left: 0;
+            opacity: 0;
+        }
+        100% {
+            left: 100%;
+            opacity: 0;
+        }
+    }
+    /* <!-- ...css for the welcome title...--> */
+
+/* <!-- ...css for the .musketeers and .prince...--> */
+
+ .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(to bottom, #003399, #66CCCC);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+.musketeers {
+  font-size: 60px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #000;
+  animation: glow 2s infinite;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  margin-top: 20px;
+
+ 
+}
+
+.prince {
+  font-size: 36px;
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgb(121, 142, 235);
+  animation: fade-in 2s;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  cursor: pointer;
+ }
+
+
+@keyframes glow {
+  0% {
+    text-shadow: 2px 2px 4px rgb(246, 229, 136);
+  }
+  50% {
+    text-shadow: 2px 2px 8px #FFF;
+  }
+  100% {
+    text-shadow: 2px 2px 4px rgb(240, 32, 32);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* <!-- ...css for the .musketeers and .prince...--> */
+/* <!-- ...css for the clickable buttons...--> */
+.button-container .button {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #08efc9;
+  color: rgb(50, 44, 4);
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.2s, color 0.2s;
+  box-shadow: 0 0 10px rgba(70, 47, 47, 0.2);
+ 
+
+}
+
+.button-container .button:hover {
+  background-color: #f5e064;
+  color: #d60707;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(247, 245, 246, 0.5);
+  transition: background-color 0.2s, color 0.2s;
+  
+}
+
+/* <!-- ...css for the clickable buttons...--> */
+/* <!-- ...css for the corner pictures...--> */
+.corner {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+.corner-top-left {
+  top: 0;
+  left: 0;
+  margin-top: 60px;
+  margin-left: 50px;
+}
+
+.corner-top-right {
+  top: 0;
+  right: 0;
+  margin-top: 60px;
+  margin-right: 50px;
+}
+
+.corner-bottom-left {
+  bottom: 0;
+  left: 0;
+  margin-bottom: 60px;
+  margin-left: 50px;
+}
+
+.corner-bottom-right {
+  bottom: 0;
+  right: 0; 
+  margin-bottom: 60px;
+  margin-right: 50px;
+}
+
+.corner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(232, 246, 76, 0.5);
+  transition: transform 0.2s;
+  
+}
+
+.corner img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(247, 245, 246, 0.5);
+  cursor: pointer;
+  animation: glow 2s infinite;
+  z-index: 1;
+
+}
+
+/* <!-- ...css for the corner pictures...--> */
+/* <!-- ...css for the oil slick...--> */
+
+.oil-slick {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+ 
+}
+
+#oil-slick-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+/* <!-- ...css for the oil slick...--> */
+    </style>
+</head>
+<body>
+
+  
+  <!-- /* ...HTML clicked buttons for Prince, Coco, Hazel... */ -->
+  <section>
+    <div class="button-container">
+      <button class="button" data-link="./prince.html">🐶PRINCE</button>
+      <button class="button" data-link="./coco.html">🐶COCO</button>
+      <button class="button" data-link="./hazel.html">🐶HAZEL</button>
+    </div>
+    </section>
+    <section>
+      <!-- /* ...HTML clicked buttons for Prince, Coco, Hazel... */ -->
+
+    <div class="cube-1">
+      
+     
+
+      <div class="corner corner-top-left">
+        <img src="./images/Coco2.png" alt="Image 1">
+      </div>
+      <div class="corner corner-top-right">
+        <img src="./images/hazelflower.png" alt="Image 2">
+      </div>
+      <div class="corner corner-bottom-left">
+        <img src="./images/prince.png" alt="Image 3">
+      </div>
+      <div class="corner corner-bottom-right">
+        <img src="./images/allinbalcony.png" alt="Image 4">
+      </div>
+
+      <div class="button-container">
+        <button class="button" data-link="./prince.html">🐶PRINCE</button>
+        <button class="button" data-link="./coco.html">🐶COCO</button>
+        <button class="button" data-link="./hazel.html">🐶HAZEL</button>
+      </div>
+        <div class="cube">
+            <div class="cube-face front"><img src="./images/Coco2.png " width="200px" height="200px"></div>
+            <div class="cube-face back"><img src="./images/hazelflower.png " width="200px" height="200px" ></div>
+            <div class="cube-face left"><img src="./images/prince.png " width="200px" height="200px"></div>
+            <div class="cube-face right"><img src="./images/Hazel.png" width="200px" height="200px"></div>
+            <div class="cube-face top"><img src="./images/cocostick.png " width="200px" height="200px"></div>
+            <div class="cube-face bottom"><img src="./images/princeincar.png" width="200px" height="200px"></div>
+        </div>
+        <div class="oil-slick">
+          <canvas id="oil-slick-canvas" width="800" height="600"></canvas>
+        </div>
+
+    </div>
+ 
+   
+    <div class="welcome-title">
+      <span>Welcome to our page!</span>
+  </div>
+    <h1 class="title">
+      <span class="musketeers">THE MUSKETEERS</span>
+      <span class="prince">PRINCE, COCO AND HAZEL!</span>
+    </h1>
+  
+  </section>
+ 
+  <!-- /* ...script clicked buttons for Prince, Coco, Hazel... */ -->
+<script>
+  const synth = new Tone.Synth().toDestination();
+
+synth.triggerAttackRelease("C4", "4n");
+</script>
+  <script>
+const buttons = document.querySelectorAll('.button');
+
+buttons.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    const link = button.getAttribute('data-link');
+    
+    if (link) {
+      window.location.href = link;
+    } else {
+      console.error('No link found for button:', button.textContent);
+    }
+  });
+});
+
+  </script>
+<!-- /* ...script clicked buttons for Prince, Coco, Hazel... */ -->
+
+<!-- /* ...script for the cube... */ -->
+   <script>
+        const cube = document.querySelector('.cube');
+        let rotationX = 0;
+        let rotationY = 0;
+
+        function spin() {
+            rotationX += .2;
+            rotationY += .2;
+            cube.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg) translateX(-50%) translateY(-50%)`;
+            requestAnimationFrame(spin);
+        }
+
+        spin();
+     </script>
+<!-- /* ...script for the cube... */ -->
+
+<!-- /* ...script for the images... */ -->
+     <script>
+      const corners = document.querySelectorAll('.corner');
+      const images = ['./images/Coco2.png', './images/hazelflower.png', './images/prince.png', './images/allinbalcony.png'];
+      let currentImage = 0;
+      
+      function fadeImages() {
+        corners.forEach((corner, index) => {
+          corner.style.opacity = 0;
+          corner.querySelector('img').src = images[(currentImage + index) % images.length];
+        });
+        corners[currentImage % corners.length].style.opacity = 1;
+        currentImage++;
+        setTimeout(fadeImages, 2000);
+      }
+      
+      fadeImages();
+     </script>
+
+     <!-- /* ...script for the images... */ -->
+
+     <!-- /* ...script for the oil slick... */ -->
+
+<script>
+  /// Get the canvas element
+  const oilSlickCanvas = document.getElementById('oil-slick-canvas');
+  
+  // Set the canvas dimensions
+  oilSlickCanvas.width = window.innerWidth;
+  oilSlickCanvas.height = window.innerHeight;
+  
+  // Create the oil slick
+  class OilSlick {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      this.speedX = Math.random() * 2 - 1;
+      this.speedY = Math.random() * 2 - 1;
+      this.radius = 10;
+      this.color = '#fff';
+      this.opacity = 1;
+      this.maxOpacity = 1;
+      this.minOpacity = 0.1;
+      this.fadeSpeed = 0.01;
+    }
+  
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+  
+      if (this.x > oilSlickCanvas.width + this.radius) {
+        this.speedX = -this.speedX;
+      } else if (this.x < -this.radius) {
+        this.speedX = -this.speedX;
+      }
+  
+      if (this.y > oilSlickCanvas.height + this.radius) {
+        this.speedY = -this.speedY;
+      } else if (this.y < -this.radius) {
+        this.speedY = -this.speedY;
+      }
+  
+      this.opacity += this.fadeSpeed;
+      if (this.opacity > this.maxOpacity) {
+        this.fadeSpeed = -this.fadeSpeed;
+      } else if (this.opacity < this.minOpacity) {
+        this.fadeSpeed = -this.fadeSpeed;
+      }
+    }
+  
+    draw() {
+      const ctx = oilSlickCanvas.getContext('2d');
+      ctx.globalAlpha = this.opacity;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+  }
+  
+  // Create an array of oil slicks
+  const oilSlicks = [];
+  
+  for (let i = 0; i < 100; i++) {
+    oilSlicks.push(new OilSlick(Math.random() * oilSlickCanvas.width, Math.random() * oilSlickCanvas.height));
+  }
+  
+  // Animate the oil slicks
+  function animate() {
+    requestAnimationFrame(animate);
+  
+    // Clear the canvas
+    oilSlickCanvas.getContext('2d').clearRect(0, 0, oilSlickCanvas.width, oilSlickCanvas.height);
+  
+    // Update and draw the oil slicks
+    oilSlicks.forEach((oilSlick) => {
+      oilSlick.update();
+      oilSlick.draw();
+    });
+  }
+  
+  animate();
+   </script>
+<!-- /* ...script for the oil slick... */ -->
+</body>
+</html>

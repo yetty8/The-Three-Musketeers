@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #f19758, #ea64f1);
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+    }
+    @keyframes glow {
+  0% {
+    text-shadow: 2px 2px 4px rgb(120, 188, 239);
+  }
+  50% {
+    text-shadow: 2px 2px 8px rgb(239, 220, 107);
+  }
+  100% {
+    text-shadow: 2px 2px 4px rgb(240, 32, 32);
+  }
+}
+
+    .story-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      
+      border-radius: 10px;
+      box-shadow: 0 20px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .story-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: rgb(51, 12, 63);
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    .story-content {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .story-image {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .story-video {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+    #back-button {
+  position: fixed;
+  font-weight: bold;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  background-color: #6de5c9;
+  color: rgb(10, 10, 8);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#back-button:hover {
+  background-color: rgb(247, 234, 132);
+  color: rgb(240, 32, 32);
+  box-shadow: 0 0 10px rgb(240, 32, 32);
+}
+
+.snow-background {
+  position: relative;
+ 
+}
+
+.snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: fall 5s infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100px, 100vh);
+    opacity: 0;
+  }
+}
+
+.snow:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.snow:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.snow:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.snow:nth-child(4) {
+  animation-delay: 3s;
+}
+
+.snow:nth-child(5) {
+  animation-delay: 4s;
+}
+
+.footer .copyright {
+  background-color: #444;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  clear: both;
+}
+.header {
+    background-color: rgb(189, 154, 47);
+  color: rgb(239, 244, 134);
+  padding: 10px 0;
+  text-align: center;
+  position: relative;
+  animation: glow 1s ease-in-out infinite alternate;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+}
+.cloud {
+  position: absolute;
+  margin-top: 50px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 100px;
+  background-color: rgb(227, 235, 114);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+  /* ... */
+  animation: float 5s infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+
+.cloud::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 50px;
+  background-color: rgb(252, 254, 147);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cloud::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 30px;
+  background-color: rgb(244, 246, 127);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  </style>
+</head>
+<body>
+    <!-- Add this to your hazel.html page -->
+    <div class="cloud"></div>
+    <audio id="music-player" autoplay loop>
+        <source src="./images/30 Minute Deep Meditation Music for Positive Energy  Relax Mind Body, Inner Peace.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+
+    <header class="header">
+        <h1>Welcome to Prince Page</h1>
+        
+      </header>
+
+    <div class="snow-background">
+        <div class="snow"></div>
+        <div class="snow"></div>
+        <div class="snow"></div>
+        <div class="snow"></div>
+        <div class="snow"></div>
+      </div>
+
+    <button id="back-button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+        <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+      </svg>Home</button>
+  <div class="story-container">
+    <h1 class="story-title">Hello! My Name Is Prince</h1>
+    <p class="story-content">
+        My name is Prince, also known as Princey P. I am a canine companion 
+        of three years of age, cherished and adored by my human family. 
+        I was born in Quebec and raised in Toronto. Although I do not understand French, 
+        I am fluent in English and the Ethiopian language.
+    </p>
+    <img src="./images/prince@logan.png" alt="Beach Image" class="story-image">
+    <p class="story-content">
+        I have two younger canine siblings, Coco and Hazel, with whom I enjoy spending quality time. 
+        I am a big fan of the beach and I relish the opportunity to venture outdoors, and occasionally, 
+        I may request a brief excursion for the sole purpose of experiencing the fresh air.
+    </p>
+    <video src="./images/princeface.MOV" autoplay muted class="story-video"></video>
+    <p class="story-content">
+        During these outdoor escapades, I find great pleasure in exploring the olfactory 
+        trails left by my fellow canine counterparts. Engaging with other dogs and humans is an 
+        activity that brings me immense joy and fulfillment.
+    </p>
+    <img src="./images/allinbalcony.png" alt="Beach Image 2" class="story-image">
+    <p class="story-content">
+        I particularly enjoy going to fenced dog parks and spending hours there. My favorite parks are 
+        the Logan Park and Greenwood Park. I am a dog that truly loves and appreciates my family.
+
+        Thank you.
+    </p>
+  </div>
+
+  <footer class="footer">
+    <div class="copyright">
+      <p>&copy; 2024 Prince. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const backButton = document.getElementById('back-button');
+    backButton.addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  </script>
+
+<script>
+    const snowBackground = document.querySelector('.snow-background');
+    
+    function createSnow() {
+      const snow = document.createElement('div');
+      snow.classList.add('snow');
+      snow.style.top = `${Math.random() * 100}%`;
+      snow.style.left = `${Math.random() * 100}%`;
+      snowBackground.appendChild(snow);
+      setTimeout(() => {
+        snow.remove();
+      }, 5000);
+    }
+    
+    setInterval(createSnow, 1000);
+     </script>
+     <script>
+        const button = document.getElementById('button');
+        
+        window.addEventListener('scroll', () => {
+          const scrollPosition = window.scrollY;
+          button.style.top = `${scrollPosition + 20}px`;
+        });
+     </script>
+</body>
+</html>

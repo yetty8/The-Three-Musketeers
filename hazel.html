@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #65f1f3,#eb3178, #cffb78);
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+    }
+    @keyframes glow {
+  0% {
+    text-shadow: 2px 2px 4px rgb(120, 188, 239);
+  }
+  50% {
+    text-shadow: 2px 2px 8px rgb(239, 220, 107);
+  }
+  100% {
+    text-shadow: 2px 2px 4px rgb(240, 32, 32);
+  }
+}
+
+    .story-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      
+      border-radius: 10px;
+      box-shadow: 0 20px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .story-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: rgb(61, 21, 73);
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    .story-content {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .story-image {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .story-video {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+    #back-button {
+  position: fixed;
+  font-weight: bolder;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  background-color: #6de5c9;
+  color: rgb(6, 6, 6);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#back-button:hover {
+  background-color: rgb(247, 234, 132);
+  color: rgb(240, 32, 32);
+  box-shadow: 0 0 10px rgb(240, 32, 32);
+}
+.snowfall-background {
+  position: relative;
+  
+ 
+}
+
+.snowflake {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: snowfall 10s infinite;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100px, 100vh);
+    opacity: 0;
+  }
+}
+
+.snowflake:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.snowflake:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.snowflake:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.snowflake:nth-child(4) {
+  animation-delay: 3s;
+}
+
+.snowflake:nth-child(5) {
+  animation-delay: 4s;
+}
+
+
+
+.footer .copyright {
+  background-color: #444;
+  color: #fff;
+  padding: 5px 0;
+  text-align: center;
+  clear: both;
+}
+.header {
+  background-color: rgb(126, 173, 229);
+  color: rgb(239, 244, 134);
+  padding: 10px 0;
+  text-align: center;
+  position: relative;
+  animation: glow 1s ease-in-out infinite alternate;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+}
+
+/* Add this to your CSS file or style block */
+.cloud {
+  position: absolute;
+  margin-top: 50px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+  /* ... */
+  animation: float 5s infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+
+.cloud::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cloud::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+  </style>
+</head>
+<body>
+    <audio id="music-player" autoplay loop>
+      <source src="./images/30 Minute Deep Meditation Music for Positive Energy  Relax Mind Body, Inner Peace.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Add this to your hazel.html page -->
+    <div class="cloud"></div>
+
+   <header class="header">
+     <h1>Welcome to Hazel Page</h1>
+     
+   </header>
+    <div class="snowfall-background">
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+      </div>
+
+   <button id="back-button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+    <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+  </svg>Home</button>
+  <div class="story-container">
+    <h1 class="story-title">Hi, My Name Is Hazel</h1>
+    <p class="story-content">
+        Okay, where do I start my story? I am a mixed breed of Pomeranian and Husky, 
+        and I was born in Hamilton, 
+        Canada and raised in Toronto Ontario.
+    </p>
+    <img src="./images/hazelflower.png" alt="Beach Image" class="story-image">
+    <p class="story-content">
+        I am the youngest and most athletic member of 
+        my family, and I enjoy spending quality time with 
+        my siblings and my human family. My favorite activities in my family, 
+        which includes my siblings Prince and Coco.
+    </p>
+    <video src="./images/hazelbeach.mp4" autoplay muted class="story-video"></video>
+    <p class="story-content">
+        My passion lies in sports, particularly track and field, 
+        and I enjoy competing in track and American 
+        football. I also enjoy playing baseball and American football, 
+        and where I excel in running and catching.
+    </p>
+    <img src=" ./images/allinbalcony.png" alt="Beach Image 2" class="story-image">
+    <p class="story-content">
+        I cherish the time spent with my family 
+        and my siblings, and I am always looking forward to see and enjoy 
+        engaging in outdoor activities 
+        and interacting with fellow canines.
+
+        Thank you.
+    </p>
+  </div>
+  <footer class="footer">
+    <div class="copyright">
+      <p>&copy; 2024 Hazel. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const backButton = document.getElementById('back-button');
+    backButton.addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  </script>
+
+   <script>
+    const snowflakes = document.querySelectorAll('.snowflake');
+    
+    function animateSnowflakes() {
+      snowflakes.forEach((snowflake, index) => {
+        snowflake.style.top = `${Math.random() * 100}%`;
+        snowflake.style.left = `${Math.random() * 100}%`;
+      });
+      setTimeout(animateSnowflakes, 10000);
+    }
+    
+    animateSnowflakes();
+   </script>
+<script>
+    const button = document.getElementById('button');
+    
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      button.style.top = `${scrollPosition + 20}px`;
+    });
+</script>
+    
+
+</body>
+</html>
